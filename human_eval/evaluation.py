@@ -9,6 +9,57 @@ import tqdm
 from human_eval.data import HUMAN_EVAL, read_problems, stream_jsonl, write_jsonl
 from human_eval.execution import check_correctness
 
+HELPER_IMPORTS = {
+    "python": [
+        "import math",
+        "import numpy",
+        "import numpy as np",
+        "import pandas",
+        "import pandas as pd",
+        "import sys",
+        "import os",
+        "import re",
+        "import random",
+        "import time",
+        "import datetime",
+        "import itertools",
+        "import functools",
+        "import string",
+        "import hashlib",
+        "from collections import *",
+        "from typing import *"
+    ],
+    "java": [
+        "import java.util.*;",
+        "import java.io.*;",
+        "import java.math.*;",
+        "import java.time.*;",
+        "import java.util.stream.*;",
+        "import java.util.function.*;",
+        "import java.util.regex.*;",
+        "import java.text.*;",
+    ],
+    "cpp": [
+        "#include <iostream>",
+        "#include <vector>",
+        "#include <string>",
+        "#include <algorithm>",
+        "#include <cmath>",
+        "#include <ctime>",
+        "#include <cstdlib>",
+        "#include <map>",
+        "#include <set>",
+        "#include <queue>",
+        "#include <stack>",
+        "#include <unordered_map>",
+        "#include <unordered_set>",
+        "#include <numeric>",
+        "#include <functional>",
+        "#include <regex>",
+        "using namespace std;",
+    ]
+}
+
 
 def estimate_pass_at_k(
     num_samples: Union[int, List[int], np.ndarray],
@@ -35,13 +86,13 @@ def estimate_pass_at_k(
 
     return np.array([estimator(int(n), int(c), k) for n, c in zip(num_samples_it, num_correct)])
 
-
 def evaluate_functional_correctness(
     sample_file: str,
     k: List[int] = [1, 10, 100],
     n_workers: int = 4,
     timeout: float = 3.0,
     problem_file: str = HUMAN_EVAL,
+    language: str = "python"
 ):
     """
     Evaluates the functional correctness of generated samples, and writes
@@ -61,9 +112,21 @@ def evaluate_functional_correctness(
         print("Reading samples...")
         for sample in tqdm.tqdm(stream_jsonl(sample_file)):
             task_id = sample["task_id"]
+            prompt = "\n".join(HELPER_IMPORTS.get(language, [])) + "\n\n" + sample["prompt"]
             completion = sample["completion"]
-            args = (problems[task_id], completion, timeout, completion_id[task_id])
-            future = executor.submit(check_correctness, *args)
+            test = sample["test"]
+            
+            args = {
+                "sample": {
+                    "task_id": task_id,
+                    "test_code": prompt + "\n" + completion + "\n" + test
+                },
+                "language": language,
+                "timeout": timeout,
+                "completion_id": completion_id[task_id]
+            }
+            
+            future = executor.submit(check_correctness, **args)
             futures.append(future)
             completion_id[task_id] += 1
             n_samples += 1
