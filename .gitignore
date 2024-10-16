@@ -2,3 +2,7 @@
 __pycache__/
 *.py[cod]
 *$py.class
+
+# test notebooks
+.ipynb_checkpoints/
+test.ipynb
