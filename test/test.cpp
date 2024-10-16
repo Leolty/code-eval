@@ -24,6 +24,6 @@ int main() {
     assert(mul(2, 3) == 6);
     assert(divide(6, 3) == 2);
 
-    cout << "All tests passed." << endl;
+    cout << "All tests passed!" << endl;
     return 0;
 }

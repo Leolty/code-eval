@@ -14,3 +14,5 @@ assert add(2,3) == 5
 assert subs(2,3) == -1
 assert mul(2,3) == 6
 assert div(6,3) == 2
+
+print("All tests passed!")

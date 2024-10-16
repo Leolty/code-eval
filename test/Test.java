@@ -23,6 +23,6 @@ public class Test {
         assert mul(2, 3) == 6 : "Test for mul failed";
         assert div(6, 3) == 2 : "Test for div failed";
 
-        System.out.println("All tests passed.");
+        System.out.println("All tests passed!");
     }
 }
