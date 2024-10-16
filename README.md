@@ -57,7 +57,11 @@ print(res)
 
 This will output:
 ```json
-{'passed': true, 'result': 'passed', 'completion_id': null}
+{
+  "passed": true,
+  "result": "passed",
+  "completion_id": null
+}
 ```
 
 #### Explanation of `check_correctness`:
