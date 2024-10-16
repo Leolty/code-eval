@@ -6,47 +6,32 @@ This repository is designed to evaluate the **executability** of LLM-generated c
 
 ### 1. Check Your Environment
 
-Before running the code, you need to set up the environment using `conda`. Follow these steps:
+Before running the code, you need to set up the environment using `conda`. Follow these steps to set up the environment:
 
-1. Clone this project:
-   ```
-   git clone git@github.com:Leolty/code-eval.git
-   cd code-eval
-   ```
+1. Clone the repository and set up the environment:
 
-2. Create and activate a conda environment named `codeeval`:
-   ```bash
-   conda create --name codeeval python=3.8
-   conda activate codeeval
-   ```
-
-3. Install the required dependencies:
-   ```bash
-   pip install -r requirements.txt
-   ```
+```bash
+git clone git@github.com:Leolty/code-eval.git && cd code-eval
+conda create --name codeeval python=3.10 && conda activate codeeval
+pip install -r requirements.txt
+```
 
 > **Note:** The `requirements.txt` may not include all necessary packages. Use `pip install <package_name>` to install any missing dependencies as needed.
 
-4. Verify your environment for Java, C++, and Python. Make sure you're in the root directory of the repo, then run the following commands:
+2. Verify your environment for Java, C++, and Python:
 
-   **Python Test**:
-   ```bash
-   python ./test/test.py
-   ```
+```bash
+# Python Test
+python ./test/test.py
 
-   **Java Test**:
-   ```bash
-   java ./test/Test.java
-   ```
+# Java Test
+java ./test/Test.java
 
-   **C++ Test**:
-   ```bash
-   g++ -o ./test/test ./test/test.cpp && ./test/test && rm ./test/test
-   ```
+# C++ Test
+g++ -o ./test/test ./test/test.cpp && ./test/test && rm ./test/test
+```
 
-   Ensure that all tests pass and display the output:  
-   `All tests passed!`  
-   If so, your environment is ready. If not, please troubleshoot any issues about the environment setup before proceeding.
+If all tests output `All tests passed!`, your environment should be ready. If not, please troubleshoot any issues about the environment setup before proceeding.
 
 ### 2. Execute Code
 
@@ -72,7 +57,7 @@ print(res)
 
 This will output:
 ```json
-{'passed': True, 'result': 'passed', 'completion_id': None}
+{'passed': true, 'result': 'passed', 'completion_id': null}
 ```
 
 #### Explanation of `check_correctness`:
