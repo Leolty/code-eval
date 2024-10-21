@@ -25,7 +25,7 @@ Before running the code, you need to set up the environment using `conda`. Follo
    python ./test/test.py
 
    # ☕ Java Test
-   java ./test/Test.java
+   java -ea ./test/Test.java
 
    # 💻 C++ Test
    g++ -o ./test/test ./test/test.cpp && ./test/test && rm ./test/test
