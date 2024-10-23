@@ -66,73 +66,37 @@ if __name__ == "__main__":
     
     #### Below are the successful tests ####
     
-    print(test_leetcode(problem_id=1, lang="python", solution=two_sum_py, return_runtime=True))
-    print(submit_leetcode(problem_id=1, lang="python", solution=two_sum_py, include_stats=True))
+    print(test_leetcode(problem_id=1, lang="python", solution=two_sum_py))
+    print(submit_leetcode(problem_id=1, lang="python", solution=two_sum_py))
     
     import time
     time.sleep(3)
     
-    print(test_leetcode(problem_id=1, lang="java", solution=two_sum_java, return_runtime=True))
-    print(submit_leetcode(problem_id=1, lang="java", solution=two_sum_java, include_stats=True))
+    print(test_leetcode(problem_id=1, lang="java", solution=two_sum_java))
+    print(submit_leetcode(problem_id=1, lang="java", solution=two_sum_java))
     
     import time
     time.sleep(3)
     
     #### Below are the failed tests ####
     
-    print(test_leetcode(problem_id=1, lang="python", solution=two_sum_py_fail, return_runtime=True))
-    print(submit_leetcode(problem_id=1, lang="python", solution=two_sum_py_fail, include_stats=True))
+    print(test_leetcode(problem_id=1, lang="python", solution=two_sum_py_fail))
+    print(submit_leetcode(problem_id=1, lang="python", solution=two_sum_py_fail))
     
     import time
     time.sleep(3)
     
-    print(test_leetcode(problem_id=1, lang="java", solution=two_sum_java_fail, return_runtime=True))
-    print(submit_leetcode(problem_id=1, lang="java", solution=two_sum_java_fail, include_stats=True))
+    print(test_leetcode(problem_id=1, lang="java", solution=two_sum_java_fail))
+    print(submit_leetcode(problem_id=1, lang="java", solution=two_sum_java_fail))
     
     """
     My output:
-    Language 'python3' is not consistent with the config language 'java'.
-    Updating config language to 'python3'...
-    Successfully updated 'lang' to 'python3' in /Users/tianyangliu/.leetcode/leetcode.toml
-    Problem file found at: /Users/tianyangliu/.leetcode/code/1.two-sum.py
-    Solution written to /Users/tianyangliu/.leetcode/code/1.two-sum.py
-    Tests passed for problem 1.
-    (True, 0)
-    Problem file found at: /Users/tianyangliu/.leetcode/code/1.two-sum.py
-    Solution written to /Users/tianyangliu/.leetcode/code/1.two-sum.py
-    Submission successful for problem 1.
-    (True, {'runtime': 0, 'memory': 17.7, 'runtime_percentile': 100.0, 'memory_percentile': 41.0})
-    Language 'java' is not consistent with the config language 'python3'.
-    Updating config language to 'java'...
-    Successfully updated 'lang' to 'java' in /Users/tianyangliu/.leetcode/leetcode.toml
-    Problem file found at: /Users/tianyangliu/.leetcode/code/1.two-sum.java
-    Solution written to /Users/tianyangliu/.leetcode/code/1.two-sum.java
-    Tests passed for problem 1.
-    (True, 0)
-    Problem file found at: /Users/tianyangliu/.leetcode/code/1.two-sum.java
-    Solution written to /Users/tianyangliu/.leetcode/code/1.two-sum.java
-    Submission successful for problem 1.
-    (True, {'runtime': 2, 'memory': 45.0, 'runtime_percentile': 98.0, 'memory_percentile': 18.0})
-    Language 'python3' is not consistent with the config language 'java'.
-    Updating config language to 'python3'...
-    Successfully updated 'lang' to 'python3' in /Users/tianyangliu/.leetcode/leetcode.toml
-    Problem file found at: /Users/tianyangliu/.leetcode/code/1.two-sum.py
-    Solution written to /Users/tianyangliu/.leetcode/code/1.two-sum.py
-    Tests failed for problem 1.
-    (False, 0)
-    Problem file found at: /Users/tianyangliu/.leetcode/code/1.two-sum.py
-    Solution written to /Users/tianyangliu/.leetcode/code/1.two-sum.py
-    Submission failed for problem 1.
-    (False, {})
-    Language 'java' is not consistent with the config language 'python3'.
-    Updating config language to 'java'...
-    Successfully updated 'lang' to 'java' in /Users/tianyangliu/.leetcode/leetcode.toml
-    Problem file found at: /Users/tianyangliu/.leetcode/code/1.two-sum.java
-    Solution written to /Users/tianyangliu/.leetcode/code/1.two-sum.java
-    Tests failed for problem 1.
-    (False, 0)
-    Problem file found at: /Users/tianyangliu/.leetcode/code/1.two-sum.java
-    Solution written to /Users/tianyangliu/.leetcode/code/1.two-sum.java
-    Submission failed for problem 1.
-    (False, {})
+    TestResult(success=True, runtime=0, output='Accepted       Runtime: 0 ms\n\nYour input:    [2,7,11,15]↩ 9↩ [3,2,4]↩ 6↩ [3,3]↩ 6\nOutput:        [0,1]↩ [1,2]↩ [0,1]↩ \nExpected:      [0,1]↩ [1,2]↩ [0,1]↩')
+    SubmissionResult(success=True, runtime=0, memory=17.8, runtime_percentile=100.0, memory_percentile=42.0, output='Success\n\nRuntime: 0 ms, faster than 100% of Python3 online submissions for Two Sum.\n\nMemory Usage: 17.8 MB, less than 42% of Python3 Two Sum.\n\nStdout:')
+    TestResult(success=True, runtime=0, output='Accepted       Runtime: 0 ms\n\nYour input:    [2,7,11,15]↩ 9↩ [3,2,4]↩ 6↩ [3,3]↩ 6\nOutput:        [0,1]↩ [1,2]↩ [0,1]↩ \nExpected:      [0,1]↩ [1,2]↩ [0,1]↩')
+    SubmissionResult(success=True, runtime=2, memory=44.7, runtime_percentile=98.0, memory_percentile=76.0, output='Success\n\nRuntime: 2 ms, faster than 98% of Java online submissions for Two Sum.\n\nMemory Usage: 44.7 MB, less than 76% of Java Two Sum.\n\nStdout:')
+    TestResult(success=False, runtime=0, output='Wrong Answer   Runtime: 0 ms\n\nYour input:    [2,7,11,15]↩ 9↩ [3,2,4]↩ 6↩ [3,3]↩ 6\nOutput:        [0,1]↩ [0,1]↩ [0,1]↩ \nExpected:      [0,1]↩ [1,2]↩ [0,1]↩')
+    SubmissionResult(success=False, runtime=None, memory=None, runtime_percentile=None, memory_percentile=None, output='Wrong Answer\n\nCases passed:  38\nTotal cases:   63\nLast case:     [3,2,4]↩ 6\nOutput:        [0,1]\nExpected:      [1,2]\nStdout:')
+    TestResult(success=False, runtime=0, output='Wrong Answer   Runtime: 0 ms\n\nYour input:    [2,7,11,15]↩ 9↩ [3,2,4]↩ 6↩ [3,3]↩ 6\nOutput:        [0,1]↩ [0,1]↩ [0,1]↩ \nExpected:      [0,1]↩ [1,2]↩ [0,1]↩')
+    SubmissionResult(success=False, runtime=None, memory=None, runtime_percentile=None, memory_percentile=None, output='Wrong Answer\n\nCases passed:  38\nTotal cases:   63\nLast case:     [3,2,4]↩ 6\nOutput:        [0,1]\nExpected:      [1,2]\nStdout:')
 """
